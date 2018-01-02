@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<select id="college-list" onchange="collegechange()">
+
+</select>
+<select id="department-list">
+
+</select>	
+<script>
+var colleges = ["商學院","工學院","建設學院"];
+var business_depts =["會計系","統計系","財稅系"];
+var engerring_depts =["工工系","航太系","化工系"];
+var construction_depts =["土木系","水利系","土管系"];
+var option = "";
+getlist(colleges,"college-list");
+getlist(business_depts,"department-list");
+function collegechange(){
+	var index = document.getElementById("college-list").value;
+	if(index == 0)getlist(business_depts,"department-list");
+	if(index == 1)getlist(engerring_depts,"department-list");
+	if(index == 2)getlist(construction_depts,"department-list");
+}
+function getlist(list,listid){
+for (var i = 0;i < list.length;i++){
+	option = option + '<option value="'+ i +'">'+ list[i] +'</option>';
+	
+}
+document.getElementById(listid).innerHTML = option;
+option = "";
+}
+
+</script>
+
+</body>
+</html>
